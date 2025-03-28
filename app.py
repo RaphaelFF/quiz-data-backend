@@ -1,8 +1,13 @@
 import streamlit as st
 from supabase import create_client, Client
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
-SUPABASE_URL = "https://blxwoqiaarfjnxodbftr.supabase.co"  
-SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJseHdvcWlhYXJmam54b2RiZnRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDMxOTQ5ODcsImV4cCI6MjA1ODc3MDk4N30.NEiyQZkVK7z1E8bjFTzDdSjwCQS2tP9FNfsWzJClypU"
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+# Inicializa o cliente do Supabase
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 def carregar_perguntas():
