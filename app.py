@@ -15,11 +15,11 @@ def adicionar_pergunta(enunciado, opcoes, resposta):
         "opcoes": opcoes,
         "resposta": resposta
     }).execute()
-    st.success("Pergunta adicionada com sucesso!")
+    st.success("Pergunta adicionada com sucesso! Recarregue a página para ver as alterações.")
 
 def excluir_pergunta(id):
     response = supabase.table("perguntas").delete().eq("id", id).execute()
-    st.success("Pergunta excluída com sucesso!")
+    st.success("Pergunta Excluida com sucesso! Recarregue a página para ver as alterações.")
 
 def atualizar_pergunta(id, enunciado, opcoes, resposta):
     response = supabase.table("perguntas").update({
@@ -27,20 +27,19 @@ def atualizar_pergunta(id, enunciado, opcoes, resposta):
         "opcoes": opcoes,
         "resposta": resposta
     }).eq("id", id).execute()
-    st.success("Pergunta atualizada com sucesso!")
+    st.success("Pergunta Atualizada com sucesso! Recarregue a página para ver as alterações.")
 
 st.title("Painel Administrativo - Perguntas do Quiz")
 
 st.header("Lista de Perguntas")
 perguntas = carregar_perguntas()
-for pergunta in perguntas:
-    with st.expander(f"Pergunta {pergunta['id']}: {pergunta['enunciado']}"):
+for index, pergunta in enumerate(perguntas, start=1):
+    with st.expander(f"Pergunta {index}: {pergunta['enunciado']}"):
         st.write("Opções:", pergunta["opcoes"])
         st.write("Resposta correta:", pergunta["opcoes"][pergunta["resposta"]])
-
-        # Botão para excluir a pergunta
-        if st.button(f"Excluir Pergunta {pergunta['id']}"):
-            excluir_pergunta(pergunta['id'])
+        if st.button(f"Excluir Pergunta {index}"):
+            excluir_pergunta(pergunta["id"])
+            
       
 
         # Formulário para editar a pergunta
@@ -62,6 +61,7 @@ for pergunta in perguntas:
             submit_editar = st.form_submit_button("Salvar Alterações")
             if submit_editar:
                 atualizar_pergunta(pergunta["id"], novo_enunciado, novas_opcoes, nova_resposta)
+                
                  
 # Seção para adicionar uma nova pergunta
 st.header("Adicionar Nova Pergunta")
@@ -77,3 +77,4 @@ with st.form("nova_pergunta"):
     submit = st.form_submit_button("Adicionar Pergunta")
     if submit:
         adicionar_pergunta(enunciado, opcoes, resposta)
+        
