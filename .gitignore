@@ -6,9 +6,6 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Pastas de ambientes virtuais
-venv/
-env/
 
 # Configurações específicas do sistema operacional
 .DS_Store

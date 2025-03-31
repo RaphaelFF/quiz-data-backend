@@ -14,10 +14,10 @@ O **Painel Administrativo** do Quiz do Mengão é uma aplicação desenvolvida p
 
 ## 🚀 Tecnologias Utilizadas
 
-**Painel Administrativo:** Python (Streamlit)
-**Backend:** Supabase (banco de dados)
-**Gerenciamento de Dependências:** Python (pip)
-**Gestão do Projeto:** Trello (tarefas)
+- **Painel Administrativo:** Python (Streamlit)
+- **Backend:** Supabase (banco de dados)
+- **Gerenciamento de Dependências:** Python (pip)
+- **Gestão do Projeto:** Trello (tarefas)
 
 ---
 
