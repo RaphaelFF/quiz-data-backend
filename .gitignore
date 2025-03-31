@@ -1,0 +1,19 @@
+# Arquivos de ambiente
+.env
+
+# Pastas e arquivos gerados pelo Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Pastas de ambientes virtuais
+venv/
+env/
+
+# Configurações específicas do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs e arquivos temporários
+*.log
+*.tmp
