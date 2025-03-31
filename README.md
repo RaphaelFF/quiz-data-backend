@@ -39,7 +39,7 @@ Certifique-se de ter instalado:
 
 ### 2. Clone o repositório
 ```bash
-git clone https://github.com/raphaelFF/quiz_flamengo.git
+https://github.com/RaphaelFF/quiz-data-backend.git
 ```
 
 ### 3. Instale as Dependências
